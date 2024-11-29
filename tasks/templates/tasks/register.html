@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block main %}
+<main>
+    <div class="main">
+        <h2 class="text-center">Registro de Membresía</h2>
+        <form method="post" action="{% url 'tasks:register' %}">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="username" class="form-label">Nombre de usuario</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="email" class="form-label">Dirección de correo electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="age" class="form-label">Edad</label>
+                <input type="number" class="form-control" id="age" name="age" min="13" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="confirm_password" class="form-label">Confirmar contraseña</label>
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-100">Registrar Cuenta</button>
+        </form>
+
+        <br>
+
+        <a href="{% url 'tasks:login' %}">¿Ya tienes cuenta? Inicia sesión aquí</a>
+    </div>
+</main>
+{% endblock %}
